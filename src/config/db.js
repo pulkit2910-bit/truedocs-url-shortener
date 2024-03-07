@@ -1,11 +1,9 @@
-const mongoose = require("mongoose");
-const { MONGODB_URI } = require("./index");
+import mongoose from "mongoose";
+// import { MONGODB_URI } from "./index.js";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+    await mongoose.connect('mongodb://localhost:27017', {
       autoIndex: true,
     });
     console.log("Database Connected");
@@ -15,4 +13,4 @@ const connectDB = async () => {
   }
 };
 
-module.exports = connectDB;
+export default connectDB;

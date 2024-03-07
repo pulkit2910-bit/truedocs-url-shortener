@@ -1,3 +1,5 @@
-module.exports = {
-    UrlRepository : require("./url-repository.mjs")
+import UrlRepository from "./url-repository.js";
+
+export {
+    UrlRepository
 }

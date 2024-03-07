@@ -1,7 +1,9 @@
+import { clientErrorCodes } from "../utils/error-codes.js";
+
 function validateUrl(req, res, next) {
     const originalUrl = req.body.url;
     if (!originalUrl) {
-        return res.status(400).json({
+        return res.status(clientErrorCodes.BAD_REQUEST).json({
             data : {},
             success : false,
             message : "No url found",
@@ -19,7 +21,7 @@ function validateUrl(req, res, next) {
     const result = urlPattern.test(originalUrl);
 
     if (!result) {
-        return res.status(400).json({
+        return res.status(clientErrorCodes.BAD_REQUEST).json({
             data : {},
             success : false,
             message : "Invalid original url",
@@ -30,6 +32,6 @@ function validateUrl(req, res, next) {
     next();
 }
 
-module.exports = {
+export {
     validateUrl
 }

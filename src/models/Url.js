@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const UrlSchema = new mongoose.Schema({
     urlId: {
@@ -18,13 +18,9 @@ const UrlSchema = new mongoose.Schema({
       type: Number,
       required: true,
       default: 0,
-    },
-    date: {
-      type: String,
-      default: Date.now,
-    },
-});
+    }
+}, { timestamps : true });
 
 const Url = mongoose.model('Url', UrlSchema);
   
-module.exports = Url;
+export default Url;

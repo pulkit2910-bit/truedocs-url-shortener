@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const v1ApiRoutes = require("./v1/index");
+import v1ApiRoutes from "./v1/index.js";
 
 router.use("/v1", v1ApiRoutes);
 
-module.exports = router;
+export default router;

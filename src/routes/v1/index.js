@@ -1,9 +1,10 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const UrlController = require("../../controllers/url-controller");
-const UrlMiddleware = require("../../middlewares/url-middlewares");
+import { generateShortUrl, getOriginalUrl } from "../../controllers/url-controller.js";
+import { validateUrl } from "../../middlewares/url-middlewares.js"; 
 
-router.post("/short", UrlMiddleware.validateUrl, UrlController.generateShortUrl);
+router.post("/short", validateUrl, generateShortUrl);
+router.get("/:urlId", getOriginalUrl);
 
-module.exports = router;
+export default router;

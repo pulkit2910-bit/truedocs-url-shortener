@@ -1,9 +1,10 @@
-const express = require("express");
+import express from "express";
 
-const { PORT } = require("./config/index")
-const connectDB = require("./config/db")
+// import { PORT } from "./config/index.js";
 
-const apiRoutes = require("./routes/index");
+import connectDB from "./config/db.js";
+
+import apiRoutes from "./routes/index.js";
 
 async function setupAndStartServer() {
     await connectDB();
@@ -15,8 +16,8 @@ async function setupAndStartServer() {
 
     app.use("/api", apiRoutes);
 
-    app.listen(PORT, () => {
-        console.log("App started at 3000");
+    app.listen(3000, () => {
+        console.log("App started at", 3000);
     })
 }
 
