@@ -40,7 +40,7 @@ class UrlRepository {
                 await Url.updateOne(
                 { urlId : urlId },
                 {
-                    $inc : { counts : 1 }
+                    $inc : { clicks : 1 }
                 });
 
                 return url.originalUrl;
